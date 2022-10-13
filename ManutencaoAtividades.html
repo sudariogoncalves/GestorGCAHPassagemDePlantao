@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ManutencaoAtividades</title>
+    
+    
+    <script src="index.js"></script>
+    
+    <script>
+
+        function carregarFuncaoAtividadeEnfermeiro() {
+            var funcaoAtividadeEnfermeiro = BuscarArrayAtividadesPorFuncao();
+
+            /*Atribuição do "cabeçalho" a linha(tr), Coluna(th)*/
+            var conteudoFinal = "<table style='width:600px;'><tr><th>Atividade Prevista</th><th>Equipe/Leitos a realizar</th>";
+            for (var i = 0; i <= 14; i++) {
+                var funcao = funcaoAtividadeEnfermeiro[i].split(";");/*Atribuição á linha de "dados" (tr) e Coluna(td) especifica*/
+                if (funcao[1]=="Enfermeiro"){
+                    conteudoFinal += "<tr><td>" + funcao[2] + "</td><td> </td><td> </td><td></td><td></tr>";
+                }
+                } /*Solicita ao HTML localização do componente "resultadoFunçãoAtividade" e incluir "conteudoFinal" dentro dele.*/
+            document.getElementById("resultadoFuncaoAtividadeEnfermeiro").innerHTML = conteudoFinal + "</table>";
+
+        }
+
+        function carregarFuncaoAtividadeTecnicoDeEnfermagem() {
+            var funcaoAtividadeTecnicoDeEnfermagem = BuscarArrayAtividadesPorFuncao();
+
+            /*Atribuição do "cabeçalho" a linha(tr), Coluna(th)*/
+            var conteudoFinal = "<table style='width:600px;'><tr><th>Atividade Prevista</th><th>Equipe/Leitos a realizar</th>";
+            for (var i = 0; i <= 14; i++) {
+                var funcao = funcaoAtividadeTecnicoDeEnfermagem[i].split(";");/*Atribuição á linha de "dados" (tr) e Coluna(td) especifica*/
+                if (funcao[1]=="Técnico de Enfermagem"){
+                conteudoFinal += "<tr><td>" + funcao[2] + "</td><td> </td><td> </td><td></td><td></tr>";
+                }
+
+            } /*Solicita ao HTML localização do componente "resultadoFunçãoAtividade" e incluir "conteudoFinal" dentro dele.*/
+            document.getElementById("resultadoFuncaoAtividadeTecnicoDeEnfermagem").innerHTML = conteudoFinal + "</table>";
+
+        }
+
+
+        function carregarFuncaoAtividadeAuxiliarTecnicoDeEnfermagem() {
+            var funcaoAtividadeAuxiliarTecnicoDeEnfermagem = BuscarArrayAtividadesPorFuncao();
+
+            /*Atribuição do "cabeçalho" a linha(tr), Coluna(th)*/
+            var conteudoFinal = "<table style='width:600px;'><tr><th>Atividade Prevista</th><th>Equipe/Leitos a realizar</th>";
+            for (var i = 0; i <= 14; i++) {
+                var funcao = funcaoAtividadeAuxiliarTecnicoDeEnfermagem[i].split(";");/*Atribuição á linha de "dados" (tr) e Coluna(td) especifica*/
+                if (funcao[1]=="Auxiliar Técnico de Enfermagem"){
+                conteudoFinal += "<tr><td>" + funcao[2] + "</td><td> </td><td> </td><td></td><td></tr>";
+                }
+            } /*Solicita ao HTML localização do componente "resultadoFunçãoAtividade" e incluir "conteudoFinal" dentro dele.*/
+            document.getElementById("resultadoFuncaoAtividadeAuxiliarTecnicoDeEnfermagem").innerHTML = conteudoFinal + "</table>";
+
+        }
+
+        function VoltarPagina() {
+            var urlParams = new URLSearchParams(window.location.search);
+            var codigopessoa = urlParams.get("codigopessoa");/*captura do valor propriedade*/
+            var tipo = urlParams.get("tipo"); /*captura  do valor propriedade (categoria F/C)*/
+            window.location.href = "SelecCoordenacao.html?codigopessoa=" + codigopessoa + "&tipo=" + tipo;
+            
+        }
+    </script>
+
+
+</head>
+
+<body style="background-color:#d3d3d3;" onload="carregarFuncaoAtividadeEnfermeiro();carregarFuncaoAtividadeTecnicoDeEnfermagem();carregarFuncaoAtividadeAuxiliarTecnicoDeEnfermagem();">
+    
+    <h3> Visualização de atividades: Enfermeiro:</h3>
+    <div id="resultadoFuncaoAtividadeEnfermeiro">
+    </div>
+    <h3> Visualização de atividades: Técnico de Enfermagem:</h3>
+    <div id="resultadoFuncaoAtividadeTecnicoDeEnfermagem">
+    </div>
+    <h3> Visualização de atividades: Auxiliar Técnico de Enfermagem:</h3>
+    <div id="resultadoFuncaoAtividadeAuxiliarTecnicoDeEnfermagem">
+    </div>
+
+    <div style="text-align:right">
+
+        <input type="button" id="btnVoltarPagina" value="Voltar Página" onclick=VoltarPagina()>
+
+    </div>
+
+</body>
+   
+
+
+</html>

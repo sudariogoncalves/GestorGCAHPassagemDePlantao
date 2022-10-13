@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RelatorioPassagemdePlantao</title>
+
+    <script src="index.js"></script>
+
+
+
+    <script>
+
+        function VoltarPagina() {
+            var urlParams = new URLSearchParams(window.location.search);
+            var codigopessoa = urlParams.get("codigopessoa");/*captura do valor dogigo pessoa*/
+            var tipo = urlParams.get("tipo"); /*captura  do valor categoria F/C*/
+            window.location.href = "SelecFuncionarios.html?codigopessoa=" + codigopessoa + "&tipo=" + tipo;
+
+        }
+
+        function CarregarAtividade() {
+            var urlParams = new URLSearchParams(window.location.search);
+            var codigopessoa = urlParams.get("codigopessoa");
+            var tipo = urlParams.get("tipo");
+            if (tipo == "f") {
+                var funcaodapessoa = "";
+                var nomedapessoa = "";
+                var turnodapessoa = "";
+                var leitodapessoa = "";
+                var funcaoAtividade = BuscarArrayAtividadesPorFuncao();
+                var arrayfuncaodapessoa = BuscarArrayEquipeManha();
+                for (var i = 0; i <= 14; i++) {
+                    var dadospessoa = arrayfuncaodapessoa[i].split(";");
+                    if (dadospessoa[0] == codigopessoa) {
+                        funcaodapessoa = dadospessoa[2];
+                        nomedapessoa = dadospessoa[1];
+                        leitodapessoa = dadospessoa[4];
+                        turnodapessoa = "Manhã";
+                        break;
+                    }
+                }
+
+                if (funcaodapessoa == "") {
+                    arrayfuncaodapessoa = BuscarArrayEquipeTarde();
+                    for (var i = 0; i <= 14; i++) {
+                        var dadospessoa = arrayfuncaodapessoa[i].split(";");
+                        if (dadospessoa[0] == codigopessoa) {
+                            funcaodapessoa = dadospessoa[2];
+                            nomedapessoa = dadospessoa[1];
+                            leitodapessoa = dadospessoa[4];
+                            turnodapessoa = "Tarde";
+                            break;
+                        }
+                    }
+
+                }
+
+                if (funcaodapessoa == "") {
+                    arrayfuncaodapessoa = BuscarArrayEquipeNoite();
+                    for (var i = 0; i <= 14; i++) {
+                        var dadospessoa = arrayfuncaodapessoa[i].split(";");
+                        if (dadospessoa[0] == codigopessoa) {
+                            funcaodapessoa = dadospessoa[2];
+                            nomedapessoa = dadospessoa[1];
+                            leitodapessoa = dadospessoa[4];
+                            turnodapessoa = "Noite";
+                            break;
+                        }
+                    }
+
+                }
+
+                if (funcaodapessoa != "") {
+
+                    /*Atribuição do "cabeçalho" a linha(tr), Coluna(th)*/
+                    var conteudoFinal = "<table style='width:100%;'><tr><th>Atividade Prevista</th><th>Equipe/Leitos a realizar</th><th>Comentários da atividade realizada/a realizar</th><th>Baixar Atividade</th></tr>";
+                    for (var i = 0; i <= 14; i++) {
+                        var funcao = funcaoAtividade[i].split(";");/*Atribuição á linha de "dados" (tr) e Coluna(td) especifica*/
+                        /* alert("função1 = "+ funcao[1]+".funcaodapessoa"+funcaodapessoa);*/
+                        if (funcao[1] == funcaodapessoa) {
+                            conteudoFinal += "<tr><td>" + funcao[2] + "</td><td>" + leitodapessoa + "</td><td><textarea rows='5' cols='80'></textarea> </td><td><div style='text-align:center'><input type='button' value='Baixar'></input></div></td></tr>";
+                        }
+                    } /*Solicita ao HTML localização do componente "resultadoFunçãoAtividade" e incluir "conteudoFinal" dentro dele.*/
+                    document.getElementById("resultadoFuncaoAtividade").innerHTML = conteudoFinal + "</table>";
+                    document.getElementById("dadosDoFuncionario").innerHTML = "<h3>Nome: " + nomedapessoa + "</h3><h3>Funcao: " + funcaodapessoa + " - " + turnodapessoa + "</h3>";
+                }
+            }
+        }
+    </script>
+</head>
+
+
+
+<body style="background-color:#d3d3d3;" onload="CarregarAtividade();">
+
+    <div>
+        <h3>Relatório de Passagem de Plantão:</h3>
+
+        <select name="select">
+            <option value="valor1">Equipe de Enfermeiros</option>
+            <option value="valor2">Equipe de Técnico de enfermagem</option>
+            <option value="valor3">Equipe de Auxiliar de enfermagem</option>
+        </select>
+    </div><br>
+
+    <div id="dadosDoFuncionario">
+
+    </div>
+
+    <div id="resultadoFuncaoAtividade">
+
+    </div>
+
+
+    <br>
+    <div style="text-align:right">
+
+        <input type="button" id="btnVoltarPagina" value="Voltar Página" onclick=VoltarPagina()>
+
+    </div>
+
+</body>
+
+
+
+</html>
+
+<footer style="text-align:center">A referência <b>"Baixar Atividade"</b>, são atividades pendente de realização do Plantão anteiror</footer><br>
+
+
+
+</body>
+
+<br>
+
+
+</html>

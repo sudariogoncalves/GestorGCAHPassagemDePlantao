@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SeleçãoFuncionarios</title>
+    <script src="index.js"></script>
+    
+
+     <script>
+        function VisualizarAtividades() {/*Sintaxe de captura dos parametros vindos URL(login)*/
+            var urlParams = new URLSearchParams(window.location.search);
+            var codigopessoa = urlParams.get("codigopessoa");/*captura do valor propriedade*/
+            var tipo = urlParams.get("tipo"); /*captura  do valor propriedade (categoria F/C)*/
+            window.location.href = "AtividadeDoUsuario.html?codigopessoa=" + codigopessoa + "&tipo="+tipo;
+        }
+    
+        function RelatorioPlantao() {
+            var urlParams = new URLSearchParams(window.location.search);
+            var codigopessoa = urlParams.get("codigopessoa");/*captura do valor propriedade*/
+            var tipo = urlParams.get("tipo"); /*captura  do valor propriedade (categoria F/C)*/
+            window.location.href = "RelatorioPP.html?codigopessoa=" + codigopessoa + "&tipo="+tipo;
+           
+        }
+    
+        function VoltarPagina() {
+            var urlParams = new URLSearchParams(window.location.search);
+            var codigopessoa = urlParams.get("codigopessoa");/*captura do valor propriedade*/
+            var tipo = urlParams.get("tipo"); /*captura  do valor propriedade (categoria F/C)*/
+            window.location.href = "Principal.html?codigopessoa=" + codigopessoa + "&tipo="+tipo;
+         
+        }
+    </script>
+
+
+</head>
+<br>
+<body style="background-color:#d3d3d3;">
+    
+    <div style="text-align:center">
+        
+        <div>
+            <input type="button"  id="VisualizarAtividades" value="Visualizar    /    Baixar suas Atividades"
+                onclick=VisualizarAtividades()>
+        </div>
+
+        <br>
+        
+        <div>
+            <input type="button" id="GerarRelatorioPP" value="Gerar Relatório de Passagem Plantão"
+                onclick=RelatorioPlantao()>
+        </div><br>
+
+        <div>
+            <img style="width:20%" src="imagem/pp.jpg">
+            
+        </div><br><br><br><br><br><br><br><br><br><br><br>
+        
+        <div style="text-align:right">
+
+        <input type="button" id="btnVoltarPagina" value="Voltar Página" onclick=VoltarPagina()>
+
+        </div>
+
+    </div>
+
+</body>
+
+
+</html>
