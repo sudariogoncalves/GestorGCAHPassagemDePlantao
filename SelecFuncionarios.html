@@ -5,63 +5,75 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SeleçãoFuncionarios</title>
-    <script src="index.js"></script>
-    
 
-     <script>
-        function VisualizarAtividades() {/*Sintaxe de captura dos parametros vindos URL(login)*/
+    <link rel="stylesheet" href="style.css">
+    <!--Importação CSS-->
+    <script src="index.js"></script>
+    <!--Importação JavaScript-->
+
+    <script> /*Metodo de habilitação a navegação na pagina AtividadeDoUsuario*/
+        function VisualizarAtividades() {
             var urlParams = new URLSearchParams(window.location.search);
-            var codigopessoa = urlParams.get("codigopessoa");/*captura do valor propriedade*/
-            var tipo = urlParams.get("tipo"); /*captura  do valor propriedade (categoria F/C)*/
-            window.location.href = "AtividadeDoUsuario.html?codigopessoa=" + codigopessoa + "&tipo="+tipo;
+            var codigopessoa = urlParams.get("codigopessoa");/*captura do valor propriedade usuario*/
+            var tipo = urlParams.get("tipo"); /*captura  do valor propriedade (categoria Funcionário/Coordenador)*/
+            window.location.href = "AtividadeDoUsuario.html?codigopessoa=" + codigopessoa + "&tipo=" + tipo;
         }
+
+        /* function RelatorioPlantao() {
+                var urlParams = new URLSearchParams(window.location.search);
+                var codigopessoa = urlParams.get("codigopessoa");/*captura do valor propriedade
+                var tipo = urlParams.get("tipo"); /*captura  do valor propriedade (categoria F/C)
+                window.location.href = "RelatorioPP.html?codigopessoa=" + codigopessoa + "&tipo=" + tipo;
     
-        function RelatorioPlantao() {
-            var urlParams = new URLSearchParams(window.location.search);
-            var codigopessoa = urlParams.get("codigopessoa");/*captura do valor propriedade*/
-            var tipo = urlParams.get("tipo"); /*captura  do valor propriedade (categoria F/C)*/
-            window.location.href = "RelatorioPP.html?codigopessoa=" + codigopessoa + "&tipo="+tipo;
-           
-        }
-    
+            }
+            */
+
         function VoltarPagina() {
             var urlParams = new URLSearchParams(window.location.search);
             var codigopessoa = urlParams.get("codigopessoa");/*captura do valor propriedade*/
-            var tipo = urlParams.get("tipo"); /*captura  do valor propriedade (categoria F/C)*/
-            window.location.href = "Principal.html?codigopessoa=" + codigopessoa + "&tipo="+tipo;
-         
+            var tipo = urlParams.get("tipo"); /*captura  do valor propriedade (categoria Funcionário/Coordenador)*/
+            window.location.href = "Principal.html?codigopessoa=" + codigopessoa + "&tipo=" + tipo;
+
         }
     </script>
 
 
 </head>
-<br>
-<body style="background-color:#d3d3d3;">
-    
-    <div style="text-align:center">
-        
-        <div>
-            <input type="button"  id="VisualizarAtividades" value="Visualizar    /    Baixar suas Atividades"
-                onclick=VisualizarAtividades()>
-        </div>
+<br> 
 
-        <br>
-        
+<body class="fundodetela">
+    <!--Cor de fundo das tela-->
+    <div>
+
         <div>
-            <input type="button" id="GerarRelatorioPP" value="Gerar Relatório de Passagem Plantão"
-                onclick=RelatorioPlantao()>
+            <!--Botão de navegação-->
+            <input class="botoes" type="button" id="VisualizarAtividades" value="         Gerar Relatório de Passagem de Plantão         "
+                onclick=VisualizarAtividades()>
         </div><br>
 
         <div>
-            <img style="width:20%" src="imagem/pp.jpg">
-            
-        </div><br><br><br><br><br><br><br><br><br><br><br>
-        
-        <div style="text-align:right">
+            <img class="imagemprincipal" src="imagem/pp.jpg">
+            <!--Imagem principal-->
+        </div><br>
 
-        <input type="button" id="btnVoltarPagina" value="Voltar Página" onclick=VoltarPagina()>
+        <div class="textoprincipal">
+        <p>Ola, seja bem vindo!<br>
+            O ambiente <b>Gerar Relatorio de Passagem de Plantão</b> é onde você <b>Enfermeiro</b>, <b>Técnico de Enfermagem</b> e <b>Auxiliar Técnico de
+            Enfermagem</b> irá incluir comentários uteis e indispensaveis á continuidade do Cuidado e Assistência Hospitalar, para conhecimento do
+            plantonista subsequente ao seu plantão. Esta informação será impressa, assinada e repassada a seu substitudo em plantão.</p>
+
+        </div><br>
+
+        <footer>Direitos reservados a equipe de projeto: Sudário Gonçalves, Lucas Marques, Gabriel Galdino, Wesley
+            Cardoso, Gabriel Dorim - 3ºPeriodo - UNA/Contagem - 09/2022
+        </footer><br>
+
+        <div class="alinhamentobotaovoltar">
+            <!--Botão de retorno e posicionamento-->
+            <input class="botoes" type="button" id="btnVoltarPagina" value="Voltar Página" onclick=VoltarPagina()>
 
         </div>
+
 
     </div>
 

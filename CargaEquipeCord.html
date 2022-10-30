@@ -5,28 +5,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CargaEquipeCoordenadores</title>
-    
+    <link rel="stylesheet" href="style.css">
+    <!--Importação CSS-->
     <script src="index.js"></script>
-
+    <!--Importação JavaScript-->
     <script>
 
         /*Função de alocação de equipes atraves de array 15 colaboradores com informações agrupadas*/
         function carregarEquipeCoordenadores() {
             var equipetodas = BuscarArrayEquipeCoordenadores();/*Metodo que busca a relação de funcionarios do index.js e carrega o banco de funcionários*/
-            var conteudoFinal = "<table style='width:600px;'><tr><th>Nome</th><th>Função</th><th>Registro</th><th>Equipe</th></tr>";
+            var conteudoFinal = "<table style='width:800px;text-align:left'><tr><th>Nome</th><th>Função</th><th>Nº Registro</th><th>Equipe Alocado</th><th></th></tr>";
             for (var i = 0; i <= 2; i++) {
                 var pessoa = equipetodas[i].split(";");/*Atribuição á linha(tr), Coluna(td) especifica*/
-                conteudoFinal += "<tr><td>" + pessoa[1] + "</td><td> " + pessoa[2] + "</td><td> " + pessoa[3] + "</td><td> " + pessoa[4] + "</td></tr>";
+                conteudoFinal += "<tr><td>" + pessoa[1] + "</td><td> " + pessoa[2] + "</td><td> " + pessoa[3] + "</td><td> " + pessoa[4] + "</td><td><input type='button' value='Editar'></input></td></tr>";
             }
             document.getElementById("resultadoEquipeCoordenadores").innerHTML = conteudoFinal + "</table>";
         }
         /*Função de alocação de equipes atraves de array 15 colaboradores com informações agrupadas*/
         function carregarEquipeManha() {
             var equipemanha = BuscarArrayEquipeManha();/*Metodo que busca a relação de funcionarios do index.js e carrega o banco de funcionários*/
-            var conteudoFinal = "<table style='width:600px;'><tr><th>Nome</th><th>Função</th><th>Registro</th><th>Equipe</th></tr>";
+            var conteudoFinal = "<table style='width:800px;text-align:left'><tr><th>Nome</th><th>Função</th><th>Nº Registro</th><th>Equipe Alocado</th><th></th></tr>";
             for (var i = 0; i <= 14; i++) {
                 var pessoa = equipemanha[i].split(";");/*Atribuição á linha(tr), Coluna(td) especifica*/
-                conteudoFinal += "<tr><td>" + pessoa[1] + "</td><td> " + pessoa[2] + "</td><td> " + pessoa[3] + "</td><td> " + pessoa[4] + "</td></tr>";
+                conteudoFinal += "<tr><td>" + pessoa[1] + "</td><td> " + pessoa[2] + "</td><td> " + pessoa[3] + "</td><td>" + pessoa[4] + "</td><td><input type='button' value='Editar'></input></td></tr>";
             }
             document.getElementById("resultadoEquipeManha").innerHTML = conteudoFinal + "</table>";
 
@@ -34,10 +35,10 @@
         /*Função de alocação de equipes atraves de array 15 colaboradores com informações agrupadas*/
         function carregarEquipeTarde() {
             var equipetarde = BuscarArrayEquipeTarde(); /*Metodo que busca a relação de funcionarios do index.js e carrega o banco de funcionários*/
-            var conteudoFinal = "<table style='width:600px;'><tr><th>Nome</th><th>Função</th><th>Registro</th><th>Equipe</th></tr>";
+            var conteudoFinal = "<table style='width:800px;text-align:left'><tr><th>Nome</th><th>Função</th><th>Nº Registro</th><th>Equipe Alocado</th><th></th></tr>";
             for (var i = 0; i <= 14; i++) {
                 var pessoa = equipetarde[i].split(";");
-                conteudoFinal += "<tr><td>" + pessoa[1] + "</td><td> " + pessoa[2] + "</td><td> " + pessoa[3] + "</td><td> " + pessoa[4] + "</td></tr>";
+                conteudoFinal += "<tr><td>" + pessoa[1] + "</td><td> " + pessoa[2] + "</td><td> " + pessoa[3] + "</td><td> " + pessoa[4] + "</td><td><input type='button' value='Editar'></input></td></tr>";
             }
             document.getElementById("resultadoEquipeTarde").innerHTML = conteudoFinal + "</table>";
 
@@ -45,10 +46,10 @@
         /*Função de alocação de equipes atraves de array 15 colaboradores com informações agrupadas*/
         function carregarEquipeNoite() {
             var equipenoite = BuscarArrayEquipeNoite();/*Metodo que busca a relação de funcionarios do index.js e carrega o banco de funcionários*/
-            var conteudoFinal = "<table style='width:600px;'><tr><th>Nome</th><th>Função</th><th>Registro</th><th>Equipe</th></tr>";
+            var conteudoFinal = "<table style='width:800px;text-align:left'><tr><th>Nome</th><th>Função</th><th>Nº Registro</th><th>Equipe Alocado</th><th></th></tr>";
             for (var i = 0; i <= 14; i++) {
                 var pessoa = equipenoite[i].split(";");
-                conteudoFinal += "<tr><td>" + pessoa[1] + "</td><td> " + pessoa[2] + "</td><td> " + pessoa[3] + "</td><td> " + pessoa[4] + "</td></tr>";
+                conteudoFinal += "<tr><td>" + pessoa[1] + "</td><td> " + pessoa[2] + "</td><td> " + pessoa[3] + "</td><td> " + pessoa[4] + "</td><td><input type='button' value='Editar'></input></td></tr>";
             }
             document.getElementById("resultadoEquipeNoite").innerHTML = conteudoFinal + "</table>";
 
@@ -59,7 +60,7 @@
             var codigopessoa = urlParams.get("codigopessoa");/*captura do valor propriedade*/
             var tipo = urlParams.get("tipo"); /*captura  do valor propriedade (categoria F/C)*/
             window.location.href = "SelecCoordenacao.html?codigopessoa=" + codigopessoa + "&tipo=" + tipo;
-            
+
         }
 
     </script>
@@ -67,31 +68,30 @@
 </head>
 <!--Botão de acionamento automático dos metodos de carregamento.-->
 
-<body style="background-color:#d3d3d3;" onload="carregarEquipeCoordenadores();carregarEquipeManha();carregarEquipeTarde();carregarEquipeNoite()">
+<body class="fundodetela"
+    onload="carregarEquipeCoordenadores();carregarEquipeManha();carregarEquipeTarde();carregarEquipeNoite()">
 
     <h3>Equipe de Coordenadores</h3>
     <div id="resultadoEquipeCoordenadores">
     </div><br>
-    
+    <hr>
     <h3>Equipe de Plantão Manhã</h3>
     <div id="resultadoEquipeManha">
     </div><br>
-
+    <hr>
     <h3>Equipe de Plantão Tarde</h3>
     <div id="resultadoEquipeTarde">
     </div><br>
-
+    <hr>
     <h3>Equipe de Plantão Noite</h3>
     <div id="resultadoEquipeNoite">
     </div>
     <br>
-    <div style="text-align:right">
+    <div class="alinhamentobotaovoltar">
 
-    <input type="button" id="btnVoltarPagina" value="Voltar Página" onclick="VoltarPagina()">
+        <input class="botoes" type="button" id="btnVoltarPagina" value="Voltar Página" onclick="VoltarPagina()">
 
     </div>
 </body>
-
-
 
 </html>

@@ -5,97 +5,90 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SeleçãoCoordenador</title>
-    <script src="index.js"></script>
-    
 
-    <script> /*Navegação entre as paginas*/
+    <link rel="stylesheet" href="style.css">
+    <!--Importação CSS-->
+    <script src="index.js"></script>
+    <!--Importação JavaScript-->
+
+    <script> /*Metodo de habilitação a navegação na pagina CargaEquipeCord*/
         function ManutencaoEquipe() {
             var urlParams = new URLSearchParams(window.location.search);
-            var codigopessoa = urlParams.get("codigopessoa");/*captura do valor propriedade*/
-            var tipo = urlParams.get("tipo"); /*captura  do valor propriedade (categoria F/C)*/
+            var codigopessoa = urlParams.get("codigopessoa");/*captura do valor propriedade usuario*/
+            var tipo = urlParams.get("tipo"); /*captura  do valor propriedade (categoria Funcionário/Coordenador)*/
             window.location.href = "CargaEquipeCord.html?codigopessoa=" + codigopessoa + "&tipo=" + tipo;
-            
+
         }
     </script>
 
-    <script>
+    <script> /*Metodo de habilitação a navegação na pagina ManutencaoAtividades*/
         function ManutencaoAtividades() {
             var urlParams = new URLSearchParams(window.location.search);
-            var codigopessoa = urlParams.get("codigopessoa");/*captura do valor propriedade*/
-            var tipo = urlParams.get("tipo"); /*captura  do valor propriedade (categoria F/C)*/
+            var codigopessoa = urlParams.get("codigopessoa");/*captura do valor propriedade usuario*/
+            var tipo = urlParams.get("tipo"); /*captura  do valor propriedade (categoria Funcionário/Coordenador)*/
             window.location.href = "ManutencaoAtividades.html?codigopessoa=" + codigopessoa + "&tipo=" + tipo;
-            
+
         }
     </script>
 
-    <script>
+    <script> /*Metodo de habilitação a navegação na pagina AtividadeFuncao*/
         function VisualizarAtivEnfermeiro() {
             var urlParams = new URLSearchParams(window.location.search);
-            var codigopessoa = urlParams.get("codigopessoa");/*captura do valor propriedade*/
-            var tipo = urlParams.get("tipo"); /*captura  do valor propriedade (categoria F/C)*/
+            var codigopessoa = urlParams.get("codigopessoa");/*captura do valor propriedade usuario*/
+            var tipo = urlParams.get("tipo"); /*captura  do valor propriedade (categoria Funcionário/Coordenador))*/
             window.location.href = "AtividadeFuncao.html.html?codigopessoa=" + codigopessoa + "&tipo=" + tipo;
-            
-        }
-    </script>
 
-    <script>
-        function RelatorioPlantao() {
-            var urlParams = new URLSearchParams(window.location.search);
-            var codigopessoa = urlParams.get("codigopessoa");/*captura do valor propriedade*/
-            var tipo = urlParams.get("tipo"); /*captura  do valor propriedade (categoria F/C)*/
-            window.location.href = "RelatorioPP.html?codigopessoa=" + codigopessoa + "&tipo=" + tipo;
-            
         }
     </script>
 
     <script>
         function VoltarPagina() {
             var urlParams = new URLSearchParams(window.location.search);
-            var codigopessoa = urlParams.get("codigopessoa");/*captura do valor propriedade*/
-            var tipo = urlParams.get("tipo"); /*captura  do valor propriedade (categoria F/C)*/
+            var codigopessoa = urlParams.get("codigopessoa");/*captura do valor propriedade usuario*/
+            var tipo = urlParams.get("tipo"); /*captura  do valor propriedade (categoria Funcionário/Coordenador)*/
             window.location.href = "Principal.html?codigopessoa=" + codigopessoa + "&tipo=" + tipo;
-            
+
         }
     </script>
 
-
 </head>
 
-<body style="background-color:#d3d3d3;">
-        <div style="text-align:center">
-        
-
-        <div> <!--Navegação entre as paginas-->
-            <input type="button" id="btnAlocacaoEquipe" value="Manutenção das Equipes" onclick=ManutencaoEquipe()>
-        </div><br><br>
-
-        <div >
-            <input type="button" id="CargaAtivEnfermeiro" value="Manutenção das Atividades"
-                onclick=ManutencaoAtividades()>
-        </div>
-        
-        <br><br>
+<body class="fundodetela">
+    <!--Cor de fundo das telas-->
+    <div>
 
         <div>
-            <input type="button" id="VisualizarAtivEnfermeiro" value="Visualizar/Baixar suas Atividades"
-                click=VisualizarAtivEnfermeiro()>
-        </div>
-
-        <br><br>
-        
-        <div>
-            <input type="button" id="GerarRelatorioPP" value="Gerar Relatório de Passagem Plantão"
-                click=RelatorioPlantao()>
-        </div><br><br>
+            <!--Botões de navegação-->
+            <input class="botoes" type="button" id="btnAlocacaoEquipe"
+                value="                       Manutenção das Equipes                     " onclick=ManutencaoEquipe()>
+        </div><br>
 
         <div>
-            <img style="width:20%" src="imagem/pp.jpg">
+            <input class="botoes" type="button" id="CargaAtivEnfermeiro"
+                value="                     Manutenção das Atividades                   " onclick=ManutencaoAtividades()>
+        </div><br>
+
+        <div>
+            <img class="imagemprincipal" src="imagem/pp.jpg">
+            <!--Imagem principal-->
+
+        </div><br>
+    
+         <div class="textoprincipal">
+         <p>Ola, seja bem vindo!<br>
+            O ambiente <b>Manutenção das Equipes</b> e <b>Manutenção das Atividades</b> são ambientes de gerenciamento dos usuários e atividades no <b>GCAH</b>, é responsabilidade
+            dos coordenadores das equipes sua manutenção em casos de promoções, realocação ou desligamento do colaborador.</p>
             
-        </div><br><br><br><br>
+         </div><br>
 
-        <div style="text-align:right">
+         <footer>Direitos reservados a equipe de projeto: Sudário Gonçalves, Lucas Marques, Gabriel Galdino, Wesley
+            Cardoso, Gabriel Dorim - 3ºPeriodo - UNA/Contagem - 09/2022
+         </footer><br>
 
-        <input type="button" id="btnVoltarPagina" value="Voltar Página" onclick=VoltarPagina()>
+        <div class="alinhamentobotaovoltar">
+        <!--Botão de retorno e posicionamento-->
+        <input class="botoes" type="button" id="btnVoltarPagina" value="Voltar Página" onclick=VoltarPagina()>
+        </div>
 
     </div>
 

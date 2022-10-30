@@ -1,0 +1,33 @@
+
+/*CSS index de configuração do frontend*/
+.fundodetela {
+    background-color:#d3d3d3;
+    text-align:center;
+}
+
+.alinhamentoatividades{
+    text-align:left
+}
+
+.imagemprincipal{
+    width:330px; 
+    border-top-right-radius:30px; 
+    border-bottom-left-radius:30px; 
+}
+
+.botoes{
+    border-radius:20px;
+    border-color:#FFF;
+}
+
+.alinhamentobotaovoltar{
+    text-align:right;
+}
+
+
+.textoprincipal{
+    text-align:justify;
+    width:800px;
+    margin-left:240px;
+}
+

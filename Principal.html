@@ -2,49 +2,46 @@
 <html lang="en">
 <html lang="pt-br">
 
-</html>
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <!--Importação CSS-->
     <script src="index.js"></script>
-    
+    <!--Importação JavaScript-->
 
-    <title>Login</title>
-    <title>ProjetoPassagemdePlantao</title>
-    
-        <script>
+    <title>ProjetoPassagemdePlantao-Login</title>
+
+    <script> /*Array de verificação do Login no index.js*/
         function Login() {
             var codigopessoa = 0;
-            var arraylogin = BuscarArrayLogin();/*Busca o array no index.js*/
-            var arrayloginCoordenador = BuscarArrayLoginCoordenadores();
+            var arraylogin = BuscarArrayLogin(); /*Login funcionáriosno*/
+            var arrayloginCoordenador = BuscarArrayLoginCoordenadores(); /*Login coordenador*/
 
-
-            for (var i = 0; i <= 38; i++) { /*Solicita identificação do usuario dentro do array?*/
-                var pessoa = arraylogin[i].split(";");/*Verificando usuario, senha e codigo são do usuario no array*/
+            for (var i = 0; i <= 38; i++) { /*Solicita identificação do usuario dentro do array funcionários*/
+                var pessoa = arraylogin[i].split(";");/*Verificando se usuario, senha e codigo são do usuario no array*/
                 if (document.getElementById("usuario").value == pessoa[0] &&
                     document.getElementById("senha").value == pessoa[1]) {
-                    codigopessoa = pessoa[2];/*Condição não encontrada no array?*/
+                    codigopessoa = pessoa[2];/*Condição não encontrada no array gera reprovação*/
                     break;
                 }
             }
             if (codigopessoa == 0) {
-                for (var i = 0; i <= 2; i++) { /*Solicita identificação do usuario dentro do array?*/
+                for (var i = 0; i <= 2; i++) { /*Solicita identificação do usuario dentro do array coordenador*/
                     var pessoa = arrayloginCoordenador[i].split(";");/*Verificando usuario, senha e codigo são do usuario no array*/
                     if (document.getElementById("usuario").value == pessoa[0] &&
                         document.getElementById("senha").value == pessoa[1]) {
-                        codigopessoa = pessoa[2];/*Condição não encontrada no array?*/
+                        codigopessoa = pessoa[2];/*Condição não encontrada no array gera reprovação*/
                         break;
                     }
                 }
 
             }
             if (codigopessoa == 0) {
-                alert("Login não encontrado!");
+                alert("Login não encontrado!"); /*Mesagem de Login ou senha incorreta*/
             }
             else {
-                if (codigopessoa < 200) /*.html? indica que a proxima informação é parametro, &tipo=f novo parametro da linha.*/
+                if (codigopessoa < 200) /*Condição de acesso ambiente por Login (Coordenador - &tipo=c ou Funcionário - tipo=f).*/
                     window.location.href = "SelecFuncionarios.html?codigopessoa=" + codigopessoa + "&tipo=f";
                 else
                     window.location.href = "SelecCoordenacao.html?codigopessoa=" + codigopessoa + "&tipo=c";
@@ -54,41 +51,39 @@
     </script>
 
 </head>
-<!--background-image:url('Pp.jpg');background-position:center;background-size:58%; background-repeat:no-repeat;">
--->
 
-<body style="background-color:#d3d3d3">
-    <div style="text-align:center">
+<body class="fundodetela">
+    <!--Cor de fundo das telas-->
+    <div>
         <span>Login:</span>
-        <input type="text" text="usuario" id="usuario" width="150px" size="6" maxlength="10" /><br>
+        <!--Abertura de acesso a digitação usuário e posicionamento-->
+        <input type="text" text="usuario" id="usuario" width="50px" size="8" maxlength="8" /><br>
         <br>
-
 
         <span>Password:</span>
-        <input type="password" text="senha" id="senha"  width="300px" size="9" maxlength="6" /><br>
+        <!--Abertura de acesso a digitação senha e posicionamento-->
+        <input type="password" text="senha" id="senha" width="50px" size="4" maxlength="4" /><br>
         <br>
 
-
-        <input type="button" id="Login" value="Login" width=10px" onclick="Login()" />
+        <!--Botão de Login e posicionamento-->
+        <input class="botoes"  type="button" id="Login" value="           Login           " width="110px" onclick="Login()" />
         <br><br>
 
-        
-        
         <div>
-            <img style="width:300px" src="imagem/pp.jpg">
-            <br>
+            <!--Posicionamento da imagem principal-->
+            <img class="imagemprincipal" src="imagem/pp.jpg">
+            
         </div>
+            <div class="textoprincipal">
+            <p>O <b>GCAH</b> é uma ferramenta de gestão das equipes de Cuidado e Assistência Hospitalar, tem por finalidade assegurar e dar continuidade 
+                a realização das atividades bem como, subsidios aos usuarios quanto a ocorrencias anteriores ao inicio de seu plantão, gerando o 
+                <b>Relatório de Passagem de Plantão</b>. <br><br>
 
-        <p>O <b>GCAH</b> é uma ferramenta de gestão da equipe de Cuidado
-            e Assistência Hospitalar, <br>tem por finalidade assegurar a
-            realização das atividades e a continuidade destas, na
-            <br>Passagem de Plantão.
-            <P>O <b>GCAH</b> é destinado aos seguintes usuarios: Coordenador da Equipe de Enfermagem;<br> Enfermeiros;
-                Técnicos de Enfermagem e Auxiliares Técnicos de Enfermagem.
-            </p>
-
-            <br>
-            <footer>Direitos reservados a equipe de projeto: Sudário Gonçalves, Lucas Marques, Gabriel Galdino, Wesley Cardoso, Gabriel Dorim - 3ºPeriodo - UNA/Contagem - 09/2022
+               O <b>GCAH</b> é destinado aos seguintes usuarios: <b>Coordenadores das Equipes de Enfermagem, Enfermeiros, Técnicos de Enfermagem e Auxiliares 
+               Técnicos de Enfermagem</b> .</p> 
+            </div>
+            <footer>Direitos reservados a equipe de projeto: Sudário Gonçalves, Lucas Marques, Gabriel Galdino, Wesley
+                Cardoso, Gabriel Dorim - 3ºPeriodo - UNA/Contagem - 09/2022
             </footer>
     </div>
 </body>
