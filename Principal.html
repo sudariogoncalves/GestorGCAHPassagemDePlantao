@@ -12,13 +12,20 @@
 
     <title>ProjetoPassagemdePlantao-Login</title>
 
-    <script> /*Array de verificação do Login no index.js*/
-        function Login() {
+    <script> 
+        function habilitaBotaoLogin(){/*Metodo de habilitação do botão login*/
+            if(document.getElementById('usuario').value !="" && document.getElementById('senha').value !="" ){
+                document.getElementById('Login').disabled=false;
+            } else{
+                document.getElementById('Login').disabled=true;
+            }
+         }
+        function Login() { /*Array de verificação do Login no index.js*/
             var codigopessoa = 0;
             var arraylogin = BuscarArrayLogin(); /*Login funcionáriosno*/
             var arrayloginCoordenador = BuscarArrayLoginCoordenadores(); /*Login coordenador*/
 
-            for (var i = 0; i <= 38; i++) { /*Solicita identificação do usuario dentro do array funcionários*/
+            for (var i = 0; i <= 44; i++) { /*Solicita identificação do usuario dentro do array funcionários*/
                 var pessoa = arraylogin[i].split(";");/*Verificando se usuario, senha e codigo são do usuario no array*/
                 if (document.getElementById("usuario").value == pessoa[0] &&
                     document.getElementById("senha").value == pessoa[1]) {
@@ -57,16 +64,16 @@
     <div>
         <span>Login:</span>
         <!--Abertura de acesso a digitação usuário e posicionamento-->
-        <input type="text" text="usuario" id="usuario" width="50px" size="8" maxlength="8" /><br>
+        <input type="text" onchange="habilitaBotaoLogin()" text="usuario" id="usuario" width="50px" size="8" maxlength="8" /><br>
         <br>
 
         <span>Password:</span>
         <!--Abertura de acesso a digitação senha e posicionamento-->
-        <input type="password" text="senha" id="senha" width="50px" size="4" maxlength="4" /><br>
+        <input type="password" onchange="habilitaBotaoLogin()" text="senha" id="senha" width="50px" size="4" maxlength="4" /><br>
         <br>
 
         <!--Botão de Login e posicionamento-->
-        <input class="botoes"  type="button" id="Login" value="           Login           " width="110px" onclick="Login()" />
+        <input disabled="true"  class="botoes"  type="button" id="Login" value="           Login           " width="110px" onclick="Login()" />
         <br><br>
 
         <div>
