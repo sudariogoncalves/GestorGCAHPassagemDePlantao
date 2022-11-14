@@ -11,7 +11,6 @@
     <script src="index.js"></script>
     <!--Importação JavaScript-->
 
-
     <script>
 
         function VoltarPagina() {
@@ -95,10 +94,7 @@
         }
 
         function armazenarAtividadeComentada(codigo, nome, funcao, atividade, leito, objComentario, botaoTransferirComentario) {
-            //alert('Passei aqui');
-            //var fso = new ActiveXObject("Scripting.FileSystemObject");
-            //var fh = fso.CreateTextFile("C:\Users\SudarioGoncalves\Projetos\PassagemdePlantao\atividadeBaixada.txt", true);
-            //fh.WriteLine(codigo + ";" + nome + ";" + funcao + ";" + atividade + ";" + leito + ";" + comentario);        
+                    
             if (objComentario.value != "") {
                 atividadeComentada += "<p><b>" + atividade + "</b><br/>" + objComentario.value + "</p>";
             }
@@ -111,9 +107,6 @@
         function CarregarDadosRelatorio() { /*Metodo de geração do relatorio de passagem*/
             document.getElementById("tela").style.display = "none";
             document.getElementById("popup").style.display = "block";
-            /// document.getElementById("dataHorario").innerHTML = "<div style='text-align:right; padding-right:80px'><h3>Data: " + dia + "/" + mes + "/" + ano + "  -  " + " hora:" + hora + ":" + minuto +"</h3></div>";
-
-
             document.getElementById("dadosDoRelatorio").innerHTML = atividadeComentada;
             document.getElementById("dadosDoFuncionarioRelatorio").innerHTML = document.getElementById("dadosDoFuncionario").innerHTML;
 
@@ -125,8 +118,6 @@
         }
     </script>
 </head>
-
-
 
 <body class="fundodetela" onload="CarregarAtividade();">
 
@@ -177,7 +168,5 @@
     </div>
 
 </body>
-
-
 
 </html>

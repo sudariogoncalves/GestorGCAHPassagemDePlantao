@@ -31,16 +31,6 @@
         }
     </script>
 
-    <script> /*Metodo de habilitação a navegação na pagina AtividadeFuncao*/
-        function VisualizarAtivEnfermeiro() {
-            var urlParams = new URLSearchParams(window.location.search);
-            var codigopessoa = urlParams.get("codigopessoa");/*captura do valor propriedade usuario*/
-            var tipo = urlParams.get("tipo"); /*captura  do valor propriedade (categoria Funcionário/Coordenador))*/
-            window.location.href = "AtividadeFuncao.html.html?codigopessoa=" + codigopessoa + "&tipo=" + tipo;
-
-        }
-    </script>
-
     <script>
         function VoltarPagina() {
             var urlParams = new URLSearchParams(window.location.search);

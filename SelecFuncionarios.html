@@ -12,21 +12,12 @@
     <!--Importação JavaScript-->
 
     <script> /*Metodo de habilitação a navegação na pagina AtividadeDoUsuario*/
-        function VisualizarAtividades() {
+        function GerarRelatorioPP() {
             var urlParams = new URLSearchParams(window.location.search);
             var codigopessoa = urlParams.get("codigopessoa");/*captura do valor propriedade usuario*/
             var tipo = urlParams.get("tipo"); /*captura  do valor propriedade (categoria Funcionário/Coordenador)*/
             window.location.href = "AtividadeDoUsuario.html?codigopessoa=" + codigopessoa + "&tipo=" + tipo;
         }
-
-        /* function RelatorioPlantao() {
-                var urlParams = new URLSearchParams(window.location.search);
-                var codigopessoa = urlParams.get("codigopessoa");/*captura do valor propriedade
-                var tipo = urlParams.get("tipo"); /*captura  do valor propriedade (categoria F/C)
-                window.location.href = "RelatorioPP.html?codigopessoa=" + codigopessoa + "&tipo=" + tipo;
-    
-            }
-            */
 
         function VoltarPagina() {
             var urlParams = new URLSearchParams(window.location.search);
@@ -47,8 +38,8 @@
 
         <div>
             <!--Botão de navegação-->
-            <input class="botoes" type="button" id="VisualizarAtividades" value="         Gerar Relatório de Passagem de Plantão         "
-                onclick=VisualizarAtividades()>
+            <input class="botoes" type="button" id="GerarRelatorioPP" value="         Gerar Relatório de Passagem de Plantão         "
+                onclick=GerarRelatorioPP()>
         </div><br>
 
         <div>
