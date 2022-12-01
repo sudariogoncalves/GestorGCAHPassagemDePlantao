@@ -8,4 +8,4 @@ Passagem de Plantão.
 O GCAH é destinado aos seguintes usuarios: Coordenador da Equipe de Enfermagem;
 Enfermeiros; Técnicos de Enfermagem e Auxiliares Técnicos de Enfermagem.
 #
-Direitos reservados a equipe de projeto: Sudário Gonçalves, Lucas Marques, Gabriel Galdino, Wesley Cardoso, Gabriel Dorim - 3ºPeriodo - UNA/Contagem - 09/2022
+Direitos reservados a equipe de projeto: Sudário Gonçalves, Lucas Marques, Gabriel Galdino, Wesley Cardoso - 3ºPeriodo - UNA/Contagem - 09/2022
